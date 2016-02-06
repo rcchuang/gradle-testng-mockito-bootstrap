@@ -18,10 +18,16 @@ group = 'com.miguno.bootstrap.gtm'
 //the default artifactId is the project name, which is per default the directory name of the project
 version = '1.0.0-SNAPSHOT'
 
+/* this will build the jar file
+defaultTasks 'clean', 'build'
+version '1.0-SNAPSHOT'
+buildDir 'build/gradle'
+*/
+
 description = """A bootstrap Java project with gradle, TestNG, Mockito, FEST-Assert 2 and Cobertura for Eclipse and Jenkins"""
 
-sourceCompatibility = 1.6
-targetCompatibility = 1.6
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
   mavenCentral()
@@ -82,6 +88,17 @@ cobertura {
 task wrapper(type: Wrapper) {
   description = 'Install Gradle wrapper'
   gradleVersion = '1.9'
+}
+
+task fatJar(type: Jar) {
+	manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',  
+        	'Implementation-Version': version,
+        	'Main-Class': 'com.miguno.bootstrap.gtm.BobRoss'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }
 
 mainClassName = "com.miguno.bootstrap.gtm.BobRoss"

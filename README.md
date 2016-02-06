@@ -152,3 +152,15 @@ See [Bootstrapping a Java project with Gradle, TestNG, Mockito and Cobertura for
 If you come up with any improvements, feel free send me a pull request.
 
 [![githalytics.com alpha](https://cruel-carlota.pagodabox.com/1ac060fa8df0e565fa8bd1a7c9169527 "githalytics.com")](http://githalytics.com/miguno/gradle-testng-mockito-bootstrap)
+
+
+# Changes
+
+Cannot run in Git Bash
+Add fatjar task and build a fat jar
+
+```
+gradle clean
+gradle fatjar
+java -jar build/libs/gradle-testng-mockito-bootstrap-all-1.0.0-SNAPSHOT.jar
+```

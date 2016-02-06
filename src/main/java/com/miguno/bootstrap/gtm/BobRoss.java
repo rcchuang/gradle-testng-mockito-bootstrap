@@ -44,7 +44,8 @@ public class BobRoss {
     }
 
     public static void main(String[] args) {
-        Set<String> paintingElements = ImmutableSet.of("sky", "lake", "mountain", "happy tree", "little squirrel");
+    	System.out.println("===========");
+        Set<String> paintingElements = ImmutableSet.of("sky", "lake", "mountain", "happy tree", "little squirrel", "fat cat");
         BobRoss bob = new BobRoss(paintingElements);
         bob.paintPicture();
     }
